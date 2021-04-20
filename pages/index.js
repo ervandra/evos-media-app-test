@@ -3,6 +3,7 @@ import { useSetState } from '@ervandra/use-setstate'
 import Masonry from 'react-masonry-css'
 import Head from 'next/head'
 import Header from '../components/global/Header';
+import Image from '../components/global/Image';
 
 export default function Home() {
   const initialState = {
@@ -25,8 +26,6 @@ export default function Home() {
 
 
   const items = search === '' ? data : data.filter(d => d.name.includes(search));
-
-
 
   return (
     <div className="app-container">
@@ -51,28 +50,13 @@ export default function Home() {
                   </div>
                 ) : (
                   <Masonry
-                    breakpointCols={
-                      {
-                        default: 6,
-                        1100: 4,
-                        600: 2
-                      }
-                    }
+                    breakpointCols={{ default: 6, 1100: 4, 600: 2 }}
                     className="masonry-grid"
-                    columnClassName="masonry-grid_column">
-                    {items.map(item => {
-                      const { _id, name, src, index } = item;
-                      return (
-                        <div className="card-item" key={_id}>
-                          <figure>
-                            <img src={src} alt={name} loading="lazy" />
-                            <figcaption>
-                              <p className="m-0">{index} - {name}</p>
-                            </figcaption>
-                          </figure>
-                        </div>
-                      )
-                    })}
+                    columnClassName="masonry-grid_column"
+                  >
+                    {items.map(item =>
+                      <Image data={item} key={item._id} />
+                    )}
                   </Masonry>
                 )}
               </div>
