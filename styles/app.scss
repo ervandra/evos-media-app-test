@@ -1,0 +1,86 @@
+.masonry-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: auto;
+}
+.masonry-grid_column {
+  background-clip: padding-box;
+}
+
+.card-item {
+  padding: 4px;
+  break-inside: avoid;
+  figure {
+    margin: 0;
+    overflow: hidden;
+    border-radius: 24px;
+    position: relative;
+    img {
+      display: block;
+      width: 100%;
+    }
+    figcaption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 0.5rem;
+      text-align: center;
+      transition: all ease 0.3s;
+      transform: translateY(100%);
+      p {
+        color: #fff;
+        margin: 0;
+        padding: 0;
+      }
+    }
+    &:hover {
+      figcaption {
+        transform: translateY(0);
+      }
+    }
+  }
+}
+
+.search-bar {
+  input {
+    margin: 0;
+  }
+}
+#mainmenu {
+  ul {
+    li {
+      display: block;
+      + li {
+        margin-left: 1.5rem;
+      }
+      a {
+        display: block;
+        color: var(--bs-gray);
+        &:hover,
+        &:focus {
+          color: var(--bs-primary);
+        }
+      }
+    }
+  }
+}
+
+.form-search {
+  position: relative;
+  .icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: calc(1.5em + 0.75rem + 2px);
+    height: calc(1.5em + 0.75rem + 2px);
+    line-height: calc(1.5em + 0.75rem + 2px);
+    text-align: center;
+    color: var(--bs-gray);
+  }
+  input {
+    padding-left: calc(1.5em + 0.75rem + 2px);
+  }
+}
